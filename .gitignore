@@ -1,0 +1,9 @@
+# .gitignore
+models/
+*.h5
+*.pt
+*.pkl
+*.zip
+data/
+__pycache__/
+.ipynb_checkpoints/
