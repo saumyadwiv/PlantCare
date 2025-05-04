@@ -30,15 +30,15 @@
 
 ## ⭐Snippet of Web App :
 #### Main page
-<img src = "demo_images/Screenshot 2025-05-04 111912.png" > <br>
+<img src = "Screenshot 2025-05-04 111912.png" > <br>
 #### AI Engine 
-<img src = "demo_images/Screenshot 2025-05-04 112042.png"> <br>
+<img src = "Screenshot 2025-05-04 112042.png"> <br>
 #### Results Page 
-<img src = "demo_images/Screenshot 2025-05-04 112308.png"> <br>
+<img src = "Screenshot 2025-05-04 112308.png"> <br>
 #### Supplements/Fertilizer
-<img src = "demo_images/Screenshot 2025-05-04 112319.png"> <br>
+<img src = "Screenshot 2025-05-04 112319.png"> <br>
 #### Shopping Cart
-<img src = "demo_images/Screenshot 2025-05-04 112346.png"> <br>
+<img src = "Screenshot 2025-05-04 112346.png"> <br>
 #### Contact Us 
-<img src = "demo_images/Screenshot 2025-05-04 112405.png"> <br><br>
+<img src = "Screenshot 2025-05-04 112405.png"> <br><br>
 
