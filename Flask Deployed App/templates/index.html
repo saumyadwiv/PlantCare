@@ -1,0 +1,244 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Engine
+{% endblock pagetitle %}
+
+{% block body %}
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background: none; /* Remove default background */
+    }
+    
+    /* Add blurred background using ::before */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("{{ url_for('static', filename='photo-1520412099551-62b6bafeb5bb.avif') }}") no-repeat center center fixed;
+        background-size: cover;
+        filter: blur(4px); /* Adjust blur intensity */
+        z-index: -1; /* Push behind content */
+    }
+    
+    /* Transparent Background with Frosted Glass Effect */
+.card {
+    background: rgba(106, 100, 100, 0.49) !important; /* Transparent white */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Ensure text remains readable */
+.card h5, .card p, .card ul, .card a {
+    color: #fff; /* Change text color to white */
+}
+
+/* Adjust button transparency */
+.btn {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.img-thumbnail {
+    border-radius: 10px;
+    border: none;
+}
+
+  
+</style>
+
+<div class="container">
+
+    <!-- Title Section -->
+    <div class="row text-center text-white mt-4">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-4 text-light " style=" padding-top: 2%; font-weight: 400; color: rgb(238, 243, 238); margin-top:30px; font-size: 60px;"><b>🍀 AI Plant Disease Detector 🍀</b></h1>
+        
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="row mt-4">
+        <!-- Left Section - Why is it necessary? -->
+        <div class="col-lg-4">
+            <div class="card shadow-lg border-0 rounded-lg bg-light p-4">
+                <h5 class="text-success"><b>🌱 Why Detect Plant Disease?</b></h5>
+                <p style="color: white;">
+                    Plant diseases affect crop yields and health. Early detection can prevent major losses 
+                    and improve farming efficiency. With AI-powered detection, farmers and gardeners can 
+                    take necessary action before the disease spreads.
+                </p>
+            </div>
+        </div>
+
+        <!-- Middle Section - Upload & Camera -->
+        <div class="col-lg-4">
+            <div class="card shadow-lg border-0 rounded-lg p-4 text-center bg-white">
+                <div class="container text-center mt-5">
+                    <h4 class="text-white"><b>Upload these types of images</b></h4>
+                    <div class="d-flex justify-content-center mt-3">
+                        <img src="{{ url_for('static', filename='mildew-on-plant-leaf.webp') }}" class="img-thumbnail mx-2" width="150" height="80">
+                        <img src="{{ url_for('static', filename='fungal-attack.webp') }}" class="img-thumbnail mx-2" width="150" height="80">
+                        
+                    </div>
+                </div>
+
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file mb-3">
+                        <input type="file" id="actual-btn" hidden name="image" />
+                        <label for="actual-btn" class="btn btn-outline-success w-100" style="border-radius: 20px;">📂 Choose File</label>
+                        <label id="camera-btn" class="btn btn-outline-primary w-100 mt-2" style="border-radius: 20px;">📸 Open Camera</label>
+                        <small id="file-chosen" class="text-muted d-block mt-2">No file chosen</small>
+                    </div>
+
+                    <!-- Camera Feed -->
+                    <div id="camera-container" class="text-center" style="display: none;">
+                        <video id="camera-feed" width="320" height="240" autoplay class="border rounded"></video>
+                        <button type="button" id="capture-btn" class="btn btn-success mt-2" style="border-radius: 20px;">Capture Photo</button>
+                    </div>
+
+                    <img id="preview" src="#" alt="Selected Image Preview" class="img-fluid border rounded mt-3 d-none" style="max-width: 100%;" />
+
+
+                    <button type="submit" class="btn btn-success mt-3 w-100" style="border-radius: 20px;">🔍 Detect Disease</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Section - Prevention Tips -->
+        <div class="col-lg-4">
+            <div class="card shadow-lg border-0 rounded-lg bg-light p-4">
+                <h5 class="text-success"><b>🌾 Prevent Plant Disease:</b></h5>
+                <ul style="color: white;">
+                    <li>🌍 Maintain good soil health</li>
+                    <li>🌿 Keep plants well-spaced</li>
+                    <li>💧 Avoid overwatering</li>
+                    <li>🌱 Use organic pesticides</li>
+                    <li>🌞 Ensure good air circulation</li>
+                </ul>
+                <a href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511" target="_blank"
+                    class="btn btn-outline-success w-100" style="border-radius: 20px;">More Info</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Camera -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const actualBtn = document.getElementById('actual-btn');
+        const captureBtn = document.getElementById('capture-btn');
+        const cameraBtn = document.getElementById('camera-btn');
+        const fileChosen = document.getElementById('file-chosen');
+        const cameraContainer = document.getElementById('camera-container');
+        const cameraFeed = document.getElementById('camera-feed');
+        const preview = document.getElementById('preview');
+        let capturedFile = null;
+
+        // Handle file input change
+    actualBtn.addEventListener('change', function () {
+        if (this.files && this.files[0]) {
+            let reader = new FileReader();
+
+            reader.onload = function (e) {
+                preview.src = e.target.result;
+                preview.classList.remove("d-none"); // Make sure the image is visible
+            };
+
+            reader.readAsDataURL(this.files[0]); // Read the file as a data URL
+            fileChosen.textContent = this.files[0].name; // Show file name
+        }
+    });
+
+        // Open Camera
+        cameraBtn.addEventListener('click', function () {
+            cameraContainer.style.display = 'block';
+            startCamera();
+        });
+
+        // Start the camera feed
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                cameraFeed.srcObject = stream;
+            } catch (err) {
+                console.error('Error accessing the camera: ', err);
+            }
+        }
+
+        // Capture photo from the camera feed
+        captureBtn.addEventListener('click', function () {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas dimensions to match the video feed
+            canvas.width = cameraFeed.videoWidth;
+            canvas.height = cameraFeed.videoHeight;
+
+            // Draw the current frame from the video feed onto the canvas
+            ctx.drawImage(cameraFeed, 0, 0, canvas.width, canvas.height);
+
+            // Convert the canvas image to a data URL
+            const dataUrl = canvas.toDataURL('image/jpeg');
+
+            // Create a file from the data URL
+            capturedFile = dataURLtoFile(dataUrl, "captured_image.jpg");
+
+            // Update file input programmatically
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(capturedFile);
+            actualBtn.files = dataTransfer.files;
+
+            // Update UI
+            fileChosen.textContent = capturedFile.name;
+            preview.src = dataUrl;
+            preview.classList.remove("d-none");
+
+            // Hide the camera after capturing
+            stopCamera();
+            cameraContainer.style.display = 'none';
+        });
+
+        // Convert Data URL to File
+        function dataURLtoFile(dataUrl, filename) {
+            const arr = dataUrl.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+
+            return new File([u8arr], filename, { type: mime });
+        }
+
+        // Stop camera stream when image is captured
+        function stopCamera() {
+            let stream = cameraFeed.srcObject;
+            if (stream) {
+                let tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                cameraFeed.srcObject = null;
+            }
+        }
+    });
+</script>
+
+
+
+
+{% endblock body %}

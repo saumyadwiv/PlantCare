@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #weather-result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Enter City for Weather Report</h2>
+    <form id="weather-form">
+        <input type="text" id="city" name="city" placeholder="Enter city name" required>
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather-result"></div>
+
+    <script>
+        document.getElementById("weather-form").addEventListener("submit", function(event) {
+            event.preventDefault();  // Prevent form from refreshing the page
+
+            const city = document.getElementById("city").value.trim();
+            if (city === "") {
+                alert("Please enter a city name!");
+                return;
+            }
+
+            fetch(`/weather?city=${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("weather-result").innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+                    } else {
+                        document.getElementById("weather-result").innerHTML = `
+                            <h3>Weather in ${data.city}</h3>
+                            <p><strong>Temperature:</strong> ${data.temperature}</p>
+                            <p><strong>Humidity:</strong> ${data.humidity}</p>
+                            <p><strong>Condition:</strong> ${data.weather}</p>
+                            <p><strong>Disease Risk:</strong> ${data.disease_risk}</p>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("weather-result").innerHTML = `<p style="color: red;">Failed to fetch weather data.</p>`;
+                });
+        });
+    </script>
+
+</body>
+</html>

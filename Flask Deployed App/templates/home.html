@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  body {
+    background-image: url("{{ url_for('static', filename='photo-1520412099551-62b6bafeb5bb.avif') }}");
+    background-size: 100%; /* Initial size */
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: zoomBackground 10s infinite ease-in-out; /* Animation for background */
+    color: black;
+  }
+
+  /* Semi-transparent overlay for better readability */
+  body::before {
+    content: '';
+    position: fixed; /* Stays in place during zoom */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(81, 79, 79, 0); /* Semi-transparent overlay */
+    pointer-events: none; /* Ensures no interference with content */
+    z-index: -1; /* Behind the content */
+  }
+
+  
+
+  .content {
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px;
+  }
+
+  @media only screen and (max-width: 830px) {
+    .laptop {
+      display: none;
+    }
+  }
+
+  @media (min-width: 830px) and (max-width: 1536px) {
+    .mobile {
+      display: none;
+    }
+  }
+
+  .custom-box {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 40px;
+    padding: 10px 30px;
+    margin: 50px 50px 50px auto;
+    width: 600px;
+    height: 150px;
+    text-align: left;
+    position: relative; /* Required for absolute positioning inside */
+}
+
+.custom-list {
+    font-weight: 500;
+    color: rgba(179, 173, 173, 0.91);
+    font-size: 20px;
+    padding-right: 100px; /* Creates space for image */
+}
+
+.floating-image {
+    position: absolute;
+    top: -250px; /* Adjust vertical position */
+    right: -100px; /* Adjust horizontal position */
+    width: 450px; /* Resize image as needed */
+    height: auto;
+}
+
+</style>
+
+<!-- Mobile Section -->
+<div class="mobile p-5">
+  <div class="row mb-5 text-center">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="display-4" style="padding-top: 2%; font-weight: 400; color:red;"><b>Note✍🏻</b></h1>
+      <p class="lead" style="font-weight: 500;">Please🙏 Open This Site On Laptop/PC 💻 Screen Only</p>
+      <p class="lead" style="font-weight: 500;">Thank You 🤝</p>
+    </div>
+  </div>
+</div>
+
+<!-- Laptop Section -->
+<div class="content laptop">
+  <div class="row mb-5 text-center">
+    <div class="col-lg-10" 
+     style="background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 40px;
+            padding: 10px 30px; /* Adjust padding */
+            margin: 100px 0px 50px 50px; /* Align left (Top Right Bottom Left) */
+            width: 900px; /* Keeps div compact */
+            text-align: left;">
+      <h1 class="display-4" style="padding-top: 2%; font-weight: 400; color: rgb(238, 243, 238); font-size: 60px;">
+        <img src="{{ url_for('static', filename='plant 2.png') }}" width="110" height="90">
+        <b>PlantCare<b>
+        
+
+      </h1>
+      <p class="lead" style="font-weight: 500; color: rgba(179, 173, 173, 0.91)">
+        This Plant Disease Detection System is an AI-powered tool that helps farmers and gardeners identify plant diseases early. By analyzing images of plant leaves, it detects infections and provides treatment suggestions instantly. This system enhances crop health, prevents major losses, and improves farming efficiency.
+      </p>
+    </div>
+
+
+  </div>
+
+  <div class="col-lg-10 custom-box">
+    <ul class="custom-list">
+        <li>Fast and Accurate Analysis</li>
+        <li>Identify Multiple Plant Diseases</li>
+        <li>Get Treatment Recommendations</li>
+    </ul>
+    <img src="static/Rose Gold Feminine Calligraphy Monogram Logo(15) 1.png" alt="Plant Image" class="floating-image">
+  </div>
+</div>
+<
+{% endblock body %}

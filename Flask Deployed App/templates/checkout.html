@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% extends 'base.html' %}
+{% block pagetitle %}
+Ecommerce 
+{% endblock pagetitle %}
+
+{% block body %}
+
+<style>
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        background: none; /* Remove default background */
+    }
+    
+   
+    /* Add blurred background using ::before */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("{{ url_for('static', filename='photo-1520412099551-62b6bafeb5bb.avif') }}") no-repeat center center fixed;
+        background-size: cover;
+        filter: blur(4px); /* Adjust blur intensity */
+        z-index: -1; /* Push behind content */
+    }
+
+    .container {
+    text-align: left;
+    padding: 20px;
+}
+
+.cart {
+    background: rgba(37, 34, 34, 0.1); /* Transparent background */
+    color: gray; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cart::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(65, 63, 63, 0.3); /* Gray overlay */
+    border-radius: 10px;
+    z-index: -1; /* Behind content */
+}
+
+.cart:hover {
+    transform: scale(1.02); /* Slightly enlarges on hover */
+}
+
+h1 {
+    color: white; /* Ensuring the white color for the heading */
+}
+
+
+
+    
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="color:white">Checkout</h1>
+
+        <div class="cart">
+            <h2 style="color:white">Your Cart</h2>
+            <ul>
+                {% for item in cart %}
+                    <li style="color:white">{{ item.name }} - ₹{{ item.price }} x {{ item.quantity }}</li>
+                {% endfor %}
+            </ul>
+            <p style="color:white">Subtotal: ₹{{ subtotal }}</p>
+            <p style="color:white">GST (18%): ₹{{ gst }}</p>
+            <p style="color:white">Discount: ₹{{ discount }}</p>
+            <h3 style="color:white">Total: ₹{{ total }}</h3>
+            <button onclick="placeOrder()" style="background-color: green;">Place Order</button>
+        </div>
+    </div>
+
+    <script>
+        function placeOrder() {
+            alert("Order placed successfully!");
+            window.location.href = "/";
+        }
+    </script>
+
+</body>
+</html>
+{% endblock body %}

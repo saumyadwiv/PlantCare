@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Customer Forum</h1>
+    <a href="{{ url_for('create_post') }}" class="btn btn-primary">Create New Post</a>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <a href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a> - By User {{ post.user_id }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

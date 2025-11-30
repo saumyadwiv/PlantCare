@@ -1,0 +1,34 @@
+<<<<<<< HEAD
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.dll
+*.lib
+
+.env
+venv/
+tutorial-env/
+.env/
+*.ipynb_checkpoints
+
+*.h5
+*.pt
+*.ckpt
+*.pth
+*.tflite
+
+.DS_Store
+*.log
+=======
+# .gitignore
+models/
+*.h5
+*.pt
+*.pkl
+*.zip
+data/
+__pycache__/
+.ipynb_checkpoints/
+>>>>>>> af181a4db7d227d546fd74a6fae241e28e656e31

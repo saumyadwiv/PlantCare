@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+
+<style>
+    body {
+      background-image: url("{{ url_for('static', filename='photo-1520412099551-62b6bafeb5bb.avif') }}");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  
+    /* Add blurred background using ::before */
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url("{{ url_for('static', filename='photo-1520412099551-62b6bafeb5bb.avif') }}") no-repeat center center fixed;
+          background-size: cover;
+          filter: blur(4px); /* Adjust blur intensity */
+          z-index: -1; /* Push behind content */
+      }
+
+      /* Transparent Background with Frosted Glass Effect */
+      .card {
+          background: rgba(68, 67, 67, 0.4) !important; /* Transparent white */
+          backdrop-filter: blur(10px); /* Glassmorphism effect */
+          border: 1px solid rgba(255, 255, 255, 0.3); /* Soft border */
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+      }
+      
+      /* Ensure text remains readable */
+      .card h5, .card p, .card ul, .card a {
+          color: #fff; /* Change text color to white */
+      }
+
+</style>
+
+<div class="row mb-5 text-center text-white laptop">
+    <div class="col-lg-10 mx-auto">
+        <h1 class="display-4 text-white" style="padding-top: 2%;font-weight: 400;color: rgb(4, 54, 4);"><b>📞Contact-Us📞</b></h1>
+        <p class="lead text-white" style="font-weight: 500;color: black;">For Any Queries & Suggestions Contact Us. We Are Happy To
+            Help.</p>
+    </div>
+</div>
+
+<div class="row p-3">
+    <div class="col">
+        <div class="card shadow-lg border-3 rounded-lg bg-light p-4 d-flex align-items-left justify-content-center" style="height: 95%;">
+            <center>
+                <h3></h3>
+                <p class="lead" style="font-weight: 350;"></p>
+            </center>
+            <div>
+                <h5>Linkedin Handles :</h5><br>
+                <a target="_blank" href='https://www.linkedin.com/in/meetpatel1904/' ><img
+                        src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" height="40" width="40"> Meet Patel</a>  
+                <br><br>
+                <a target="_blank" href='https://www.linkedin.com/in/manasvi-khare/'><img
+                        src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" height="44"
+                        width="44"> Manasvi Khare </a>
+                        <br><br>
+                <a target="_blank" href='https://www.linkedin.com/in/khushangsingh2004/'><img
+                        src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" height="40" width="40">Khushang Singh</a> 
+                <br><br>
+                <a target="_blank" href='https://www.linkedin.com/in/sakshi-mittal-354895275/'><img
+                        src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" height="40" width="40"> Sakshi Mittal</a> 
+                <br><br>
+                <a target="_blank" href='https://www.linkedin.com/in/saumya-dwivedi-73114127b/'><img
+                    src="https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvdjk4Mi1kNS0xMF8xLnBuZw.png" height="40" width="40">Saumya Dwivedi</a> 
+                    <br>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card shadow-lg border-3 rounded-lg bg-light p-4 d-flex align-items-left justify-content-center" style="height: 95%;">
+            <center>
+                <h3></h3>
+                <p class="lead" style="font-weight: 350;">
+                </p>
+            </center>
+            <div>
+                <h5>Social Media Handles :</h5><br>
+                <a target="_blank" href='https://www.instagram.com/saumya_dwiv?igsh=YWZjd291c2lncDc='><img
+                        src="https://imgs.search.brave.com/n4ZUgAgjuQlgXEDxkMWCLxaa0rAAOeml50aB2b_v5AI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE0/NjMucG5nP3NlbXQ9/YWlzX2h5YnJpZA" height="40" width="40">Saumya Dwivedi</a> :
+                <br><br>
+                <a target="_blank" href='https://www.instagram.com/sakshimittal757?igsh=NjVtYzh2aGl2c3E3'><img
+                        src="https://imgs.search.brave.com/n4ZUgAgjuQlgXEDxkMWCLxaa0rAAOeml50aB2b_v5AI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE0/NjMucG5nP3NlbXQ9/YWlzX2h5YnJpZA" height="44" width="44">Sakshi Mittal</a> :
+                <br><br>
+                <a target="_blank" href='https://www.instagram.com/mnsvikhare?igsh=cTZxNmVpYWg4ODgw'><img
+                        src="https://imgs.search.brave.com/n4ZUgAgjuQlgXEDxkMWCLxaa0rAAOeml50aB2b_v5AI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE0/NjMucG5nP3NlbXQ9/YWlzX2h5YnJpZA" height="40" width="40">Manasvi Khare</a> :
+                <br><br>
+                <a target="_blank" href='https://www.instagram.com/_meet.p.19?igsh=MXNrbG1hMnNwNGt3dQ%3D%3D&utm_source=qr'><img
+                    src="https://imgs.search.brave.com/n4ZUgAgjuQlgXEDxkMWCLxaa0rAAOeml50aB2b_v5AI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE0/NjMucG5nP3NlbXQ9/YWlzX2h5YnJpZA" height="40" width="40">Meet Patel</a> :
+                <br><br>
+                <a target="_blank" href='https://www.instagram.com/khushang24?igsh=MWI0Y2xpZWJ6bnd2cw=='><img
+                    src="https://imgs.search.brave.com/n4ZUgAgjuQlgXEDxkMWCLxaa0rAAOeml50aB2b_v5AI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE0/NjMucG5nP3NlbXQ9/YWlzX2h5YnJpZA" height="40" width="40">Khushang Singh</a> :
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
