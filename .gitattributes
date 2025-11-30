@@ -7,3 +7,4 @@
 *.dll filter=lfs diff=lfs merge=lfs -text
 *.lib filter=lfs diff=lfs merge=lfs -text
 >>>>>>> af181a4db7d227d546fd74a6fae241e28e656e31
+*.png filter=lfs diff=lfs merge=lfs -text
