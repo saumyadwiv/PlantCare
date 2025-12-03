@@ -1,14 +1,14 @@
-# ⭐Plant-Disease-Detection
-* Plant Disease is necessary for every farmer so we are created Plant disease detection using Deep learning. In which we are using convolutional Neural Network for classifying Leaf images into 39 Different Categories. The Convolutional Neural Code build in Pytorch Framework. For Training we are using Plant village dataset. Dataset Link is in My Blog Section.
+# ⭐PlantCare: AI Plant Disease Detector
+* Plant Disease detection is necessary for every farmer so we are created Plant disease detection using Deep learning. In which we are using convolutional Neural Network for classifying Leaf images into 39 Different Categories. The Convolutional Neural Code build in Pytorch Framework. For Training we are using Plant village dataset. Dataset Link is in My Blog Section.
 
 ## ⭐Run Project in your Machine
 * You must have **Python3.8** installed in your machine.
 * Create a Python Virtual Environment & Activate Virtual Environment [Link](https://docs.python.org/3/tutorial/venv.html)
 * Install all the dependencies using below command
     `pip install -r requirements.txt`
-* Go to the `Flask Deployed App` folder.
-* Download the pre-trained model file `plant_disease_model_1.pt` from [here](https://drive.google.com/drive/folders/1ewJWAiduGuld_9oGSrTuLumg9y62qS6A?usp=share_link)
-* Add the downloaded file in `Flask Deployed App` folder.
+* Go to the root folder.
+* Download the pre-trained model file `model_quantized.pt` from [here](https://drive.google.com/file/d/13VRKr_0oh0TLMTqNNantF0qQaq7M_WIh/view?usp=drive_link)
+* Add the downloaded file in the root folder.
 * Run the Flask app using below command `python3 app.py`
 * You can also use downloaded file in `Model` Section and play with it using Jupyter Notebook.
 
@@ -27,11 +27,8 @@
 * If you do not have leaf images then you can use test images located in test_images folder
 * Each image has its corresponding disease name, so you can verify whether the model is working perfectly or not
 
-## ⭐Blog Link
-<a href="https://medium.com/analytics-vidhya/plant-disease-detection-using-convolutional-neural-networks-and-pytorch-87c00c54c88f" target = "_blank">Plant Disease Detection Using Convolutional Neural Networks with PyTorch</a><br>
-
 ## ⭐Deployed App
-<a href="https://plant-disease-detection-ai.herokuapp.com/" target = "_blank">Plant-Disease-Detection-AI</a><br>
+<a href="web-production-55ad9.up.railway.app" target = "_blank">PlantCare: AI Plant Disease Detector</a><br>
 
 
 ## ⭐Snippet of Web App :
