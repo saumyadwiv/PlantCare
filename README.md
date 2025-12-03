@@ -30,7 +30,6 @@
 ## ⭐Deployed App
 <a href="web-production-55ad9.up.railway.app" target = "_blank">PlantCare: AI Plant Disease Detector</a><br>
 
-
 ## ⭐Snippet of Web App :
 #### Main page
 <img src = "demo_images/1.png" > <br>
