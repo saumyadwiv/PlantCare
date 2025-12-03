@@ -33,10 +33,10 @@ K = len(idx_to_classes)
 model = CNN(K)
 
 # Load the state dict (weights only)
-state_dict = torch.load("plant_disease_model_1_latest.pt", map_location="cpu")
+state_dict = torch.load("model_quantized.pt", map_location="cpu")
 
 # Apply weights to the model
-model.load_state_dict(state_dict)
+model.load_state_dict(state_dict, strict=False)
 
 # Set model to evaluation mode
 model.eval()
