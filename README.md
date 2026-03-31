@@ -27,8 +27,6 @@
 * If you do not have leaf images then you can use test images located in test_images folder
 * Each image has its corresponding disease name, so you can verify whether the model is working perfectly or not
 
-## ⭐Deployed App
-<a href="https://web-production-55ad9.up.railway.app" target = "_blank">PlantCare: AI Plant Disease Detector</a><br>
 
 ## ⭐Snippet of Web App :
 #### Main page
