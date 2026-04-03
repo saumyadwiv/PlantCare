@@ -12,7 +12,7 @@
 * Run the Flask app using below command `python3 app.py`
 * You can also use downloaded file in `Model` Section and play with it using Jupyter Notebook.
 
-## ⭐Contribution ( Open Source )
+## ⭐Contribution
 * This Project is now open source.
 * All the developers who are intrested they can contribute in this project.
 * Yo can make UI better , make Deep learning model more powerful , add informative markdown file in section...
