@@ -1,7 +1,7 @@
 # ⭐PlantCare: AI Plant Disease Detector
 * Plant Disease detection is necessary for every farmer so we are created Plant disease detection using Deep learning. In which we are using convolutional Neural Network for classifying Leaf images into 39 Different Categories. The Convolutional Neural Code build in Pytorch Framework. For Training we are using Plant village dataset. Dataset Link is in My Blog Section.
 
-## ⭐Run Project in your Machine
+## ⭐Run Project in your Machine 
 * You must have **Python3.8** installed in your machine.
 * Create a Python Virtual Environment & Activate Virtual Environment [Link](https://docs.python.org/3/tutorial/venv.html)
 * Install all the dependencies using below command
@@ -16,7 +16,7 @@
 * This Project is now open source.
 * All the developers who are intrested they can contribute in this project.
 * Yo can make UI better , make Deep learning model more powerful , add informative markdown file in section...
-* If you will change Deep learning make sure you upload updated markdown file (.md) , .pdf and .ipynb in particular section.
+* If you will cha   nge Deep learning make sure you upload updated markdown file (.md) , .pdf and .ipynb in particular section.
 * Make sure your code is working. It will not have any type or error.
 * You have to fork this project then make a pull request after you testing will successful.
 * How to make pull request : https://opensource.com/article/19/7/create-pull-request-github
